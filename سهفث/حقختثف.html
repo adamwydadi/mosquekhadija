@@ -1,0 +1,477 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>مسجد خديجة أم المؤمنين - تمارة</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root{
+      --accent:#0b6b3a;
+      --accent-light:#0d8250;
+      --bg:#f4f3ee;
+      --card:#ffffff;
+      --gold:#c7a008;
+      --text:#222;
+      --text-light:#666;
+      --shadow:0 6px 16px rgba(0,0,0,0.08);
+    }
+    *{box-sizing:border-box;font-family:'Noto Naskh Arabic',serif}
+    body{margin:0;background:var(--bg);color:var(--text);line-height:1.6}
+    header{background:linear-gradient(120deg,var(--accent),var(--accent-light));padding:20px;color:#fff;text-align:center;position:relative;box-shadow:0 4px 12px rgba(0,0,0,0.1)}
+    header h1{margin:0;font-size:26px;letter-spacing:1px}
+    header p{margin:5px 0 0;font-size:15px;color:#e3e3e3}
+    .container{max-width:1100px;margin:20px auto;padding:0 16px}
+    .banner{height:260px;border-radius:12px;background:url('mosque.pnj') center/cover no-repeat;box-shadow:var(--shadow);position:relative;overflow:hidden}
+    .banner-overlay{position:absolute;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.3);display:flex;align-items:center;justify-content:center;color:white;font-size:24px;font-weight:bold}
+    .card{background:var(--card);padding:18px;border-radius:12px;box-shadow:var(--shadow);margin-top:20px}
+    h2,h3{color:var(--accent);border-right:4px solid var(--gold);padding-right:8px}
+    table{width:100%;border-collapse:collapse;margin-top:10px}
+    th,td{padding:8px;border-bottom:1px solid #eee;text-align:right}
+    .countdown{font-size:22px;font-weight:bold;color:var(--gold)}
+    .muted{color:var(--text-light);font-size:14px}
+    footer{margin-top:40px;text-align:center;padding:20px;background:var(--accent);color:#fff;border-top:4px solid var(--gold)}
+    .btn{background:var(--accent);color:#fff;padding:10px 16px;text-decoration:none;border-radius:8px;display:inline-block;margin-top:8px;transition:all 0.3s ease}
+    .btn:hover{background:var(--accent-light);transform:translateY(-2px)}
+    iframe{border-radius:12px;width:100%;height:250px;border:0;margin-top:10px}
+    
+    /* تحسينات جديدة */
+    .prayer-highlight{background-color:rgba(11,107,58,0.1);font-weight:bold}
+    .ramadan-notice{background:linear-gradient(45deg, var(--gold), #e6c860);color:#333;padding:12px;border-radius:8px;margin:15px 0;text-align:center;font-weight:bold}
+    .events-list{list-style:none;padding:0}
+    .events-list li{padding:10px 0;border-bottom:1px solid #eee;display:flex;align-items:center}
+    .events-list li:last-child{border-bottom:none}
+    .event-icon{color:var(--accent);margin-left:10px;font-size:18px}
+    .tabs{display:flex;border-bottom:1px solid #eee;margin-bottom:15px}
+    .tab{flex:1;text-align:center;padding:10px;cursor:pointer;border-bottom:3px solid transparent;transition:all 0.3s}
+    .tab.active{color:var(--accent);border-bottom-color:var(--accent);font-weight:bold}
+    .tab-content{display:none}
+    .tab-content.active{display:block}
+    .donation-box{background:linear-gradient(135deg, #f9f9f9, #e9e9e9);padding:15px;border-radius:8px;text-align:center;margin-top:15px}
+    .donation-amounts{display:flex;justify-content:center;gap:10px;margin:15px 0}
+    .donation-amount{background:white;padding:8px 15px;border-radius:6px;cursor:pointer;border:1px solid #ddd;transition:all 0.3s}
+    .donation-amount:hover{background:var(--accent);color:white}
+    .social-links{display:flex;justify-content:center;gap:15px;margin-top:20px}
+    .social-link{width:40px;height:40px;border-radius:50%;background:var(--accent);color:white;display:flex;align-items:center;justify-content:center;text-decoration:none;transition:all 0.3s}
+    .social-link:hover{background:var(--accent-light);transform:translateY(-3px)}
+    .loading{text-align:center;padding:20px}
+    .spinner{width:40px;height:40px;border:4px solid rgba(11,107,58,0.2);border-left:4px solid var(--accent);border-radius:50%;animation:spin 1s linear infinite;margin:0 auto}
+    @keyframes spin{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+    
+    /* قسم الأسئلة الدينية */
+    .quran-section{background:linear-gradient(135deg, #f8f6f0, #e8e6df);padding:20px;border-radius:12px;margin-top:20px;border-right:5px solid var(--gold)}
+    .quran-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:15px}
+    .quran-title{color:var(--accent);margin:0;font-size:22px}
+    .quran-refresh{background:var(--accent);color:white;border:none;padding:8px 15px;border-radius:6px;cursor:pointer;transition:all 0.3s;font-size:14px}
+    .quran-refresh:hover{background:var(--accent-light)}
+    .quran-verse{font-size:20px;line-height:1.8;text-align:center;margin:20px 0;color:#2c3e50;font-weight:500}
+    .quran-translation{font-size:16px;line-height:1.6;text-align:center;margin:15px 0;color:var(--text-light);font-style:italic}
+    .quran-reference{text-align:center;color:var(--accent);font-weight:bold;margin-top:10px}
+    .quran-info{display:flex;justify-content:space-around;margin-top:20px;flex-wrap:wrap}
+    .quran-stat{text-align:center;padding:10px}
+    .quran-stat-value{font-size:24px;font-weight:bold;color:var(--accent)}
+    .quran-stat-label{font-size:14px;color:var(--text-light)}
+    
+    /* تصميم متجاوب */
+    @media (max-width:768px){
+      .banner{height:180px}
+      .banner-overlay{font-size:18px}
+      .donation-amounts{flex-wrap:wrap}
+      .tabs{flex-direction:column}
+      .quran-header{flex-direction:column;gap:10px}
+      .quran-info{flex-direction:column}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>مسجد خديجة أم المؤمنين</h1>
+    <p>الموقع الرسمي لمسجد خديجة أم المؤمنين بمدينة تمارة</p>
+  </header>
+
+  <main class="container">
+    <div class="banner">
+      <div class="banner-overlay">مسجد خديجة أم المؤمنين - تمارة</div>
+    </div>
+
+    <!-- إشعار رمضان -->
+    <div id="ramadanNotice" class="ramadan-notice" style="display:none">
+      <i class="fas fa-moon"></i>نتشرف بحضوركم<i class="fas fa-moon"></i>
+    </div>
+
+    <section class="card">
+      <h2>مواقيت الصلاة اليوم في تمارة</h2>
+      <div id="timingsInfo" class="muted">يتم التحديث تلقائياً</div>
+      <table>
+        <thead><tr><th>الصلاة</th><th>الوقت</th></tr></thead>
+        <tbody>
+          <tr id="FajrRow"><td>الفجر</td><td id="Fajr">--:--</td></tr>
+          <tr><td>الشروق</td><td id="Sunrise">--:--</td></tr>
+          <tr id="DhuhrRow"><td>الظهر</td><td id="Dhuhr">--:--</td></tr>
+          <tr id="AsrRow"><td>العصر</td><td id="Asr">--:--</td></tr>
+          <tr id="MaghribRow"><td>المغرب</td><td id="Maghrib">--:--</td></tr>
+          <tr id="IshaRow"><td>العشاء</td><td id="Isha">--:--</td></tr>
+        </tbody>
+      </table>
+
+      <div style="margin-top:14px">
+        <div class="muted">الصلاة القادمة:</div>
+        <div id="nextPrayerName" class="countdown">--</div>
+        <div class="muted" id="nextPrayerTime">--:--</div>
+        <div style="margin-top:10px">
+          <span class="muted">الوقت المتبقي للإقامة:</span>
+          <div id="countdown" class="countdown">--:--:--</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- قسم الأسئلة الدينية والآيات العشوائية -->
+    <section class="card">
+      <div class="quran-header">
+        <h2 class="quran-title"><i class="fas fa-question-circle"></i> معلومات دينية</h2>
+        <button class="quran-refresh" id="refreshQuran">
+          <i class="fas fa-sync-alt"></i> تغيير المعلومة والآية
+        </button>
+      </div>
+      
+      <div id="quranContent">
+        <div class="loading">
+          <div class="spinner"></div>
+          <p>جاري تحميل المعلومة الديني والآية...</p>
+        </div>
+      </div>
+      
+      <div class="quran-info">
+        <div class="quran-stat">
+          <div class="quran-stat-value" id="chapterNumber">--</div>
+          <div class="quran-stat-label">رقم السورة</div>
+        </div>
+        <div class="quran-stat">
+          <div class="quran-stat-value" id="verseNumber">--</div>
+          <div class="quran-stat-label">رقم الآية</div>
+        </div>
+        <div class="quran-stat">
+          <div class="quran-stat-value" id="revelationType">--</div>
+          <div class="quran-stat-label">نوع الوحي</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>الأنشطة والأحداث</h2>
+      <div class="tabs">
+        <div class="tab active" data-tab="events">الأحداث القادمة</div>
+        <div class="tab" data-tab="lessons">الدروس الأسبوعية</div>
+        <div class="tab" data-tab="programs">برامج المسجد</div>
+      </div>
+      
+      <div class="tab-content active" id="events">
+        <ul class="events-list">
+          <li><i class="fas fa-calendar-alt event-icon"></i>"قراءة الحزب بعد صلاة المغرب"</li>
+          <li><i class="fas fa-calendar-alt event-icon"></i>قراءة الحزب بعد صلاة الفجر</li>
+          <li><i class="fas fa-calendar-alt event-icon"></i> </li>
+        </ul>
+      </div>
+      
+      <div class="tab-content" id="lessons">
+        <ul class="events-list">
+          <li><i class="fas fa-book event-icon"></i>درس كل يوم الأ ثنين بعد صلاة العشاء </li>
+          <li><i class="fas fa-book event-icon"></i></li>
+          <li><i class="fas fa-book event-icon"></i> </li>
+        </ul>
+      </div>
+      
+      <div class="tab-content" id="programs">
+        <ul class="events-list">
+          <li><i class="fas fa-mosque event-icon"></i>  تحفيظ القرآن للأطفال - أيام السبت  من كل أسبوع مع ساعة تالتة مساءً</li>
+          <li><i class="fas fa-mosque event-icon"></i> </li>
+          <li><i class="fas fa-mosque event-icon"></i> </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>التبرع للمسجد</h2>
+      <p>يساهم تبرعكم في استمرار أنشطة المسجد وخدمة المجتمع. جزاكم الله خيراً.</p>
+      
+      <div class="donation-box">
+        <h3>اختر مبلغ التبرع</h3>
+        <div class="donation-amounts">
+          <div class="donation-amount" data-amount="50">50 درهم</div>
+          <div class="donation-amount" data-amount="100">100 درهم</div>
+          <div class="donation-amount" data-amount="200">200 درهم</div>
+          <div class="donation-amount" data-amount="500">500 درهم</div>
+        </div>
+        <p>أو ادخل المبلغ المطلوب:</p>
+        <input type="number" id="customAmount" placeholder="المبلغ بالدرهم" style="padding:8px;border-radius:6px;border:1px solid #ddd;width:150px;text-align:center">
+        <br>
+        <button class="btn" id="donateBtn" style="margin-top:15px">
+          <i class="fas fa-hand-holding-heart"></i> تبرع الآن
+        </button>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>عن المسجد</h2>
+      <p>
+        مسجد خديجة أم المؤمنين بتمارة هو أحد بيوت الله التي تُقام فيها الصلوات الخمس والخطب والدروس الدينية. نسعى في هذا الموقع لتقريب رواد المسجد من أنشطته وبرامجه، ولمواكبة مواعيد الصلاة بشكل دقيق.
+      </p>
+      <p>
+        يقدم المسجد العديد من الخدمات والأنشطة الدينية والاجتماعية، بما في ذلك دروس العلم، تحفيظ القرآن للكبار والصغار، الإفطارات الجماعية في رمضان، والعديد من البرامج الأخرى التي تهدف إلى خدمة المجتمع المحلي.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>اتصل بنا</h2>
+      <p><i class="fas fa-phone"></i> الهاتف: </p>
+      <p><i class="fas fa-envelope"></i> البريد الإلكتروني: info@khadijamosque.ma</p>
+      <p><i class="fas fa-clock"></i> أوقات الاستقبال: مواقيت صلاة</p>
+      
+      <div class="social-links">
+        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+        <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>الموقع على الخريطة</h2>
+      <p class="muted">اضغط على الخريطة للوصول إلى المسجد عبر Google Maps:</p>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3329.7439247056093!2d-6.9247923!3d33.9241717!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda76b82e4dd7eb3%3A0x96a812f50261af7f!2z2KfZhNi52KfZhiDYp9mE2YXYqtmE2KfYr9in2Ko!5e0!3m2!1sar!2sma!4v1730390000000!5m2!1sar!2sma" allowfullscreen loading="lazy"></iframe>
+      <a class="btn" target="_blank" href="https://maps.app.goo.gl/c76UVS1KZxFJy9et7">
+        <i class="fas fa-map-marker-alt"></i> افتح في خرائط Google
+      </a>
+    </section>
+
+  </main>
+
+  <footer>
+     © 
+      الموق من طرف فاعل خير جميع الحقوق محفوظة لمسجد خديجة أم المؤمنين — تمارة
+    <br>
+    made: adambnalhassan
+  </footer>
+
+  <script>
+    const city = 'Temara';
+    const country = 'Morocco';
+    let currentPrayer = '';
+
+    // تحقق إذا كان شهر رمضان
+    function checkRamadan() {
+      const now = new Date();
+      const ramadanStart = new Date(now.getFullYear(), 2, 10); // تاريخ افتراضي لبداية رمضان
+      const ramadanEnd = new Date(now.getFullYear(), 3, 10); // تاريخ افتراضي لنهاية رمضان
+      
+      if (now >= ramadanStart && now <= ramadanEnd) {
+        document.getElementById('ramadanNotice').style.display = 'block';
+      }
+    }
+
+    async function loadPrayerTimes(){
+      try{
+        document.getElementById('timingsInfo').innerHTML = '<div class="loading"><div class="spinner"></div> جاري تحميل مواقيت الصلاة...</div>';
+        
+        const res = await fetch(`https://api.aladhan.com/v1/timingsByCity?city=${city}&country=${country}&method=2`);
+        const data = await res.json();
+        const t = data.data.timings;
+        
+        // تحديث مواقيت الصلاة
+        ['Fajr','Sunrise','Dhuhr','Asr','Maghrib','Isha'].forEach(id=>{
+          document.getElementById(id).textContent = t[id];
+        });
+        
+        document.getElementById('timingsInfo').textContent = `تم التحديث في ${new Date().toLocaleTimeString('ar-EG')}`;
+        computeCountdown(t);
+      }catch(e){
+        document.getElementById('timingsInfo').textContent='حدث خطأ أثناء تحميل المواقيت';
+      }
+    }
+
+    function computeCountdown(t){
+      const order=['Fajr','Dhuhr','Asr','Maghrib','Isha'];
+      const now=new Date();
+      const parts=(s)=>{const [h,m]=s.split(':').map(Number);return {h,m}};
+      const times=order.map(n=>{const {h,m}=parts(t[n]);return {n,dt:new Date(now.getFullYear(),now.getMonth(),now.getDate(),h,m)}});
+      
+      // إزالة التمييز عن الصلوات السابقة
+      order.forEach(prayer => {
+        document.getElementById(`${prayer}Row`).classList.remove('prayer-highlight');
+      });
+      
+      let next=times.find(x=>x.dt>now);
+      if(!next){
+        const {h,m}=parts(t['Fajr']);
+        next={n:'Fajr',dt:new Date(now.getFullYear(),now.getMonth(),now.getDate()+1,h,m)};
+      }
+      
+      // تمييز الصلاة الحالية
+      const currentIndex = order.indexOf(next.n);
+      const prevPrayer = currentIndex > 0 ? order[currentIndex-1] : order[order.length-1];
+      document.getElementById(`${prevPrayer}Row`).classList.add('prayer-highlight');
+      
+      document.getElementById('nextPrayerName').textContent=getPrayerName(next.n);
+      document.getElementById('nextPrayerTime').textContent=next.dt.toTimeString().slice(0,5);
+      currentPrayer = next.n;
+      
+      clearInterval(window._int);
+      window._int=setInterval(()=>{
+        const diff=next.dt-new Date();
+        if(diff<=0){loadPrayerTimes();clearInterval(window._int);return;}
+        const h=Math.floor(diff/3600000),m=Math.floor((diff%3600000)/60000),s=Math.floor((diff%60000)/1000);
+        document.getElementById('countdown').textContent=`${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
+      },1000);
+    }
+
+    // تحويل أسماء الصلوات بالانجليزية إلى العربية
+    function getPrayerName(prayer) {
+      const names = {
+        'Fajr': 'الفجر',
+        'Dhuhr': 'الظهر',
+        'Asr': 'العصر',
+        'Maghrib': 'المغرب',
+        'Isha': 'العشاء'
+      };
+      return names[prayer] || prayer;
+    }
+
+    // جلب آية عشوائية من القرآن
+    async function loadRandomQuranVerse() {
+      try {
+        // نستخدم API القرآن الكريم للحصول على آية عشوائية
+        const randomChapter = Math.floor(Math.random() * 114) + 1;
+        const randomVerse = Math.floor(Math.random() * 20) + 1; // معظم السور لها أكثر من 20 آية
+        
+        const res = await fetch(`https://api.alquran.cloud/v1/ayah/${randomChapter}:${randomVerse}/editions/quran-uthmani,ar.muyassar`);
+        const data = await res.json();
+        
+        if (data.code === 200 && data.data) {
+          const verse = data.data[0].text; // النص العربي
+          const translation = data.data[1] ? data.data[1].text : "التفسير غير متوفر حالياً";
+          
+          document.getElementById('quranContent').innerHTML = `
+            <div class="quran-verse">${verse}</div>
+            <div class="quran-translation">${translation}</div>
+            <div class="quran-reference">سورة ${getChapterName(randomChapter)} - الآية ${randomVerse}</div>
+          `;
+          
+          document.getElementById('chapterNumber').textContent = randomChapter;
+          document.getElementById('verseNumber').textContent = randomVerse;
+          document.getElementById('revelationType').textContent = randomChapter <= 92 ? "مكية" : "مدنية";
+        } else {
+          throw new Error('لم يتم العثور على الآية');
+        }
+      } catch (error) {
+        // في حالة فشل API، نستخدم بيانات افتراضية
+        const fallbackVerses = [
+          {
+            verse: "يَا أَيُّهَا الَّذِينَ آمَنُوا اسْتَعِينُوا بِالصَّبْرِ وَالصَّلَاةِ ۚ إِنَّ اللَّهَ مَعَ الصَّابِرِينَ",
+            translation: "يا أيها الذين آمنوا استعينوا بالصبر والصلاة إن الله مع الصابرين",
+            chapter: "البقرة",
+            chapterNum: 2,
+            verseNum: 153,
+            type: "مدنية"
+          },
+          {
+            verse: "إِنَّمَا يُوَفَّى الصَّابِرُونَ أَجْرَهُم بِغَيْرِ حِسَابٍ",
+            translation: "إنما يوفى الصابرون أجرهم بغير حساب",
+            chapter: "الزمر",
+            chapterNum: 39,
+            verseNum: 10,
+            type: "مكية"
+          },
+          {
+            verse: "وَأَقِيمُوا الصَّلَاةَ وَآتُوا الزَّكَاةَ وَارْكَعُوا مَعَ الرَّاكِعِينَ",
+            translation: "وأقيموا الصلاة وآتوا الزكاة واركعوا مع الراكعين",
+            chapter: "البقرة",
+            chapterNum: 2,
+            verseNum: 43,
+            type: "مدنية"
+          }
+        ];
+        
+        const randomIndex = Math.floor(Math.random() * fallbackVerses.length);
+        const randomVerse = fallbackVerses[randomIndex];
+        
+        document.getElementById('quranContent').innerHTML = `
+          <div class="quran-verse">${randomVerse.verse}</div>
+          <div class="quran-translation">${randomVerse.translation}</div>
+          <div class="quran-reference">سورة ${randomVerse.chapter} - الآية ${randomVerse.verseNum}</div>
+        `;
+        
+        document.getElementById('chapterNumber').textContent = randomVerse.chapterNum;
+        document.getElementById('verseNumber').textContent = randomVerse.verseNum;
+        document.getElementById('revelationType').textContent = randomVerse.type;
+      }
+    }
+
+    // الحصول على اسم السورة بالعربية
+    function getChapterName(chapterNumber) {
+      const chapters = {
+        1: "الفاتحة", 2: "البقرة", 3: "آل عمران", 4: "النساء", 5: "المائدة",
+        6: "الأنعام", 7: "الأعراف", 8: "الأنفال", 9: "التوبة", 10: "يونس",
+        114: "الناس"
+      };
+      return chapters[chapterNumber] || `سورة ${chapterNumber}`;
+    }
+
+    // نظام التبويبات
+    document.querySelectorAll('.tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        // إزالة النشاط من جميع التبويبات
+        document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+        
+        // إضافة النشاط للتبويب المحدد
+        tab.classList.add('active');
+        document.getElementById(tab.dataset.tab).classList.add('active');
+      });
+    });
+
+    // نظام التبرع
+    document.querySelectorAll('.donation-amount').forEach(amount => {
+      amount.addEventListener('click', () => {
+        document.querySelectorAll('.donation-amount').forEach(a => a.style.background = 'white');
+        document.querySelectorAll('.donation-amount').forEach(a => a.style.color = '');
+        amount.style.background = 'var(--accent)';
+        amount.style.color = 'white';
+        document.getElementById('customAmount').value = amount.dataset.amount;
+      });
+    });
+
+    document.getElementById('donateBtn').addEventListener('click', () => {
+      const amount = document.getElementById('customAmount').value;
+      if(!amount || amount <= 0) {
+        alert('يرجى إدخال مبلغ صحيح للتبرع');
+        return;
+      }
+      
+      // هنا يمكن إضافة منطق الدفع الفعلي
+      alert(`شكراً لتبرعكم بمبلغ ${amount} درهم. جزاكم الله خيراً.`);
+      document.getElementById('customAmount').value = '';
+      document.querySelectorAll('.donation-amount').forEach(a => {
+        a.style.background = 'white';
+        a.style.color = '';
+      });
+    });
+
+    // تحديث مواقيت الصلاة كل ساعة
+    setInterval(loadPrayerTimes, 3600000);
+    
+    // تحديث الآية العشوائية كل دقيقتين
+    setInterval(loadRandomQuranVerse, 120000);
+    
+    // زر تحديث الآية يدوياً
+    document.getElementById('refreshQuran').addEventListener('click', loadRandomQuranVerse);
+    
+    // التحميل الأولي
+    loadPrayerTimes();
+    checkRamadan();
+    loadRandomQuranVerse();
+  </script>
+</body>
+</html>
